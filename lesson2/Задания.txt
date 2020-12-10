@@ -1,0 +1,98 @@
+1.
+
+var a = 1, b = 1, c, d;
+c = ++a; alert(c);           // 2 - форма записи инкремента - префиксная, сначала переменная a увеличивается на на единицу, затем переменной c присваивается значение переменной a.
+d = b++; alert(d);           // 1 - форма записи инкремента - постфиксная, поэтому переменной d сразу присваивается значение переменной b, и только после этого выполняется операция инкремента переменной b.
+c = (2+ ++a); alert(c);      // 5 - после операций во второй строке значение a = 2, после инкремента становится a = 3, выполняется операция сложения и результат записывается в переменную c.
+d = (2+ b++); alert(d);      // 4 - после выполнения операций выше значение переменной b = 2, форма записи - постфиксная, поэтому сначала значение переменной b складывается с двойкой, результат записывается в d, и только после этого выполняется инкремент переменной b (b=3).
+alert(b);                    // 3
+
+2. Чему будет равен x в примере ниже?
+var a = 2;
+var x = 1 + (a *= 2);
+alert(x);
+
+Ответ: 5. Сначала выполняется операция умножения значения переменной a на два, затем прибавляется единица.
+
+
+3. Объявить две целочисленные переменные — a и b и задать им произвольные начальные значения. Затем написать скрипт, который работает по следующему принципу:
+если a и b положительные, вывести их разность;
+если а и b отрицательные, вывести их произведение;
+если а и b разных знаков, вывести их сумму;
+Ноль можно считать положительным числом.
+
+var a = 1, b = 5;
+if ((a>=0)&&(b>=0))
+	alert(a - b);
+else if ((a<0)&&(b<0))
+	alert(a * b);
+else alert(a + b);
+
+4. Присвоить переменной а значение в промежутке [0..15]. С помощью оператора switch организовать вывод чисел от a до 15.
+
+var a = 3;
+switch(a){
+   case 1:        alert(a++);
+   case 2:        alert(a++);
+   case 3:        alert(a++);
+   case 4:        alert(a++);
+   case 5:        alert(a++);
+   case 6:        alert(a++);
+   case 7:        alert(a++);
+   case 8:        alert(a++);
+   case 9:        alert(a++);
+   case 10:        alert(a++);
+   case 11:        alert(a++);
+   case 12:        alert(a++);
+   case 13:        alert(a++);
+   case 14:        alert(a++);
+   case 15:        alert(a); break;
+   default:        alert('???')
+}
+
+5. Реализовать четыре основные арифметические операции в виде функций с двумя параметрами. Обязательно использовать оператор return.
+
+var a = 3, b = 2;
+function summa(x, y)
+{   return (x + y);}
+function differ(x, y)
+{   return (x - y);}
+function multi(x, y)
+{   return (x * y);}
+function divis(x, y)
+{   return (x / y);}
+alert('Сумма: '+summa(a,b));
+alert('Разность: '+differ(a,b));
+alert('Произведение: '+multi(a,b));
+alert('Отношение: '+divis(a,b));
+
+6. Реализовать функцию с тремя параметрами: function mathOperation(arg1, arg2, operation), где arg1, arg2 — значения аргументов, operation — строка с названием операции. В зависимости от переданного значения выполнить одну из арифметических операций (использовать функции из пункта 5) и вернуть полученное значение (применить switch).
+
+var a = 3, b = 2;
+function summa(x, y)
+{   return (x + y);}
+function differ(x, y)
+{   return (x - y);}
+function multi(x, y)
+{   return (x * y);}
+function divis(x, y)
+{   return (x / y);}
+
+function mathOperation(arg1, arg2, operation){
+	switch(operation){
+		case 'summa': 	return (summa(arg1,arg2)); break;
+		case 'differ': 	return (differ(arg1,arg2)); break;
+		case 'multi': 	return (multi(arg1,arg2)); break;
+		case 'divis': 	return (divis(arg1,arg2)); break;
+		default:	alert('Неизвестная операция'); break;
+	}
+}
+
+alert('Сумма: '+mathOperation(a, b, 'summa'));
+alert('Разность: '+mathOperation(a, b, 'differ'));
+alert('Произведение: '+mathOperation(a, b, 'multi'));
+alert('Отношение: '+mathOperation(a, b, 'divis'));
+alert(mathOperation(a, b, 'sqrt'));
+
+
+
